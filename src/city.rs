@@ -1,5 +1,4 @@
 use std::iter::repeat_n;
-use std::{print, println};
 use std::io::{Write, stdout};
 
 /// This Module helps to make the cli more structured
@@ -45,13 +44,13 @@ impl City<'_> {
     /// 
     /// no_clear specifies whetehr the screen shoudl be cleared
     pub fn display(&self, no_clear: bool) {
+        // get stream so taht we can flush beacause sometimes
+        // 🦀 doesn't flush
+        let mut stdout = stdout();
+
         if !no_clear {
             // clear what was printed before
             // go back CITY_HEIGHT + 1(help message) lines while clearing each line
-
-            // get stream so taht we can flush beacause sometimes
-            // 🦀 doesn't flush
-            let mut stdout = stdout();
 
             // use repeat_n to make a iterator
             for _ in repeat_n((), CITY_HEIGHT + 1).into_iter() {
@@ -72,6 +71,9 @@ impl City<'_> {
         };
 
         // print the help message
-        println!("{}", self.current_help);
+        print!("{}", self.current_help);
+
+        // flush
+        stdout.flush().expect(FLUSH_ERROR);
     }
 }
