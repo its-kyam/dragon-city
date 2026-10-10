@@ -1,3 +1,5 @@
+// city.rs
+
 use std::iter::repeat_n;
 use std::io::{Write, stdout};
 
@@ -67,7 +69,7 @@ impl City<'_> {
                 print!("{}", o);
             };
             // Add a nl at the end of each line
-            print!("\n");
+            print!("\r\n");
         };
 
         // print the help message
