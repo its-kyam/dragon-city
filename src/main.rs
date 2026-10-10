@@ -72,7 +72,7 @@ impl Drop for Durf {
 
         let mut stdout = stdout();
 
-        print!("{}", SHOW_CURSOR);
+        print!("{}\n", SHOW_CURSOR);
         stdout.flush().expect(FLUSH_ERROR);
     }
 }
