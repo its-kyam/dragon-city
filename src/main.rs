@@ -8,8 +8,14 @@
 /// This is BETA stage, there may be some bugs.
 /// If you find any bugs, create an issue.
 
-const MESSAGE: &str = "Welcome to Dragon City";
+// make constants.rs available
+mod constants;
+
+// state the constants that this file uses
+use constants::{
+    WELCOME_MESSAGE
+};
 
 fn main() {
-    println!(MESSAGE);
+    println!("{}", WELCOME_MESSAGE);
 }
