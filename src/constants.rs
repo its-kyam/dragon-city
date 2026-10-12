@@ -1,9 +1,8 @@
 // constants.rs
 
 /// Module to store all the constants and strings in this project
-/// 
+///
 /// Also this changes frame after input
-
 // Strings
 /// Basic Message
 pub const WELCOME_MESSAGE: &str = "Welcome to Dragon City, press q to quit anytime";

@@ -2,15 +2,17 @@
 
 /// This is my own version of Dragon City for the CLI,
 /// ENJOY! 😃
-/// 
-/// HINT: Use: 
-/// `dragon-city cheat # or target/debug/dragon-city or cargo run -q -- ` 
+///
+/// HINT: Use:
+/// `dragon-city cheat # or target/debug/dragon-city or cargo run -q -- `
 /// for command mode!
-/// 
+///
 /// This is BETA stage, there may be some bugs.
 /// If you find any bugs, create an issue.
-
-use std::io::{stdout, stdin, Result as IOResult, Error as IOError, ErrorKind::Other as OtherIOErrorKind, Read, Write};
+use std::io::{
+    Error as IOError, ErrorKind::Other as OtherIOErrorKind, Read, Result as IOResult, Write, stdin,
+    stdout,
+};
 use std::process::Command;
 
 // make constants.rs available
@@ -21,18 +23,11 @@ mod city;
 
 // state the constants that this file uses
 use constants::{
-    WELCOME_MESSAGE,
-    HIDE_CURSOR,
-    SHOW_CURSOR,
-    STTY_ERROR,
-    INPUT_ERROR,
-    LOADING_SCREEN
+    HIDE_CURSOR, INPUT_ERROR, LOADING_SCREEN, SHOW_CURSOR, STTY_ERROR, WELCOME_MESSAGE,
 };
 
 // get City
-use city::{
-    City
-};
+use city::City;
 
 use crate::constants::FLUSH_ERROR;
 
@@ -41,15 +36,12 @@ struct Durf;
 
 impl Durf {
     /// make a new guard LOL 😭😭😭
-    /// 
+    ///
     /// Also does settings for raw mode
     /// Uses stty
     fn new() -> IOResult<Self> {
         // settings for raw mode
-        let status = Command::new("stty")
-            .arg("raw")
-            .arg("-echo")
-            .status()?;
+        let status = Command::new("stty").arg("raw").arg("-echo").status()?;
 
         if !status.success() {
             Err(IOError::new(OtherIOErrorKind, STTY_ERROR))
@@ -62,19 +54,16 @@ impl Durf {
 // Make sure it always exits correctly even on panic
 impl Drop for Durf {
     /// Returns input mode to normal
-    /// 
+    ///
     /// Also makes cursor visible
     fn drop(&mut self) {
         // completely ignore beacuse error printing is kind of useless here
-        let _ = Command::new("stty")
-            .arg("-raw")
-            .arg("echo")
-            .status();
+        let _ = Command::new("stty").arg("-raw").arg("echo").status();
 
         let mut stdout = stdout();
 
         print!("{}\n", SHOW_CURSOR);
-        stdout.flush().expect(FLUSH_ERROR);
+        stdout.flush().expect(FLUSH_ERROR)
     }
 }
 
@@ -110,5 +99,5 @@ fn main() {
         if input[0] == b'q' {
             return;
         }
-    };
+    }
 }
