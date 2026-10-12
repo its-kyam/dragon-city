@@ -17,6 +17,18 @@ use crate::constants::{
     FLUSH_ERROR
 };
 
+
+/// Enum to mention the type of a building
+// pub enum BuildingType {
+//     HABITAT = 1,
+//     BUILDING = 2
+// }
+
+// /// Struct for a thing on an Island
+// struct Building {
+
+// }
+
 /// Used to store everything about a currently running city
 
 // one lifetime for current_help
@@ -27,6 +39,9 @@ pub(crate) struct City<'a> {
     
     /// The bottom line that helps users select what they want to do
     pub current_help: &'a str,
+
+    // /// The items in the island
+    // island: Vec<>
 }
 
 impl City<'_> {
@@ -38,7 +53,8 @@ impl City<'_> {
     pub fn new() -> Self {
         Self {
             cli_city: [[DEFAULT_CHAR; CITY_LENGTH]; CITY_HEIGHT],
-            current_help: ""
+            current_help: "",
+            // island: Vec::from([]),
         }
     }
 

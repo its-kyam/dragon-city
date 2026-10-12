@@ -25,7 +25,8 @@ use constants::{
     HIDE_CURSOR,
     SHOW_CURSOR,
     STTY_ERROR,
-    INPUT_ERROR
+    INPUT_ERROR,
+    LOADING_SCREEN
 };
 
 // get City
@@ -97,6 +98,7 @@ fn main() {
     // GAME START
 
     city.current_help = WELCOME_MESSAGE;
+    city.cli_city = LOADING_SCREEN;
 
     let mut input = [0u8; 1];
 
