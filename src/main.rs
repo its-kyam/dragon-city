@@ -3,11 +3,7 @@
 /// This is my own version of Dragon City for the CLI,
 /// ENJOY! 😃
 ///
-/// HINT: Use:
-/// `dragon-city cheat # or target/debug/dragon-city or cargo run -q -- `
-/// for command mode!
-///
-/// This is BETA stage, there may be some bugs.
+/// This is SUPER ALPHA stage, there may be some bugs.
 /// If you find any bugs, create an issue.
 use std::io::{
     Error as IOError, ErrorKind::Other as OtherIOErrorKind, Read, Result as IOResult, Write, stdin,
