@@ -48,3 +48,9 @@ If you want to contribute,
 ## Disclaimer
 
 This is an unofficial fan project and is not affiliated with or endorsed by Socialpoint or the original Dragon City game's publishers.
+
+## License
+
+Dragon City is licensed under the GNU General Public
+License v3.0 or any later version (GPL-3.0-or-later).
+See [LICENSE](LICENSE) for the full license text.
