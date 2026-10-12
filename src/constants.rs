@@ -11,11 +11,11 @@ pub const STTY_ERROR: &str = "Failed to set stty raw mode!";
 pub const INPUT_ERROR: &str = "Failed to take input through stdin";
 
 // Constants
-pub(crate) const ERASE_LINE: &str = "\033[2K";
+pub(crate) const ERASE_LINE: &str = "\x1b[2K";
 pub(crate) const CITY_LENGTH: usize = 60;
 pub(crate) const CITY_HEIGHT: usize = 25;
 pub(crate) const DEFAULT_CHAR: char = '.';
-pub(crate) const MOVE_UP: &str = "\033[1A";
+pub(crate) const MOVE_UP: &str = "\x1b[1A";
 pub(crate) const HIDE_CURSOR: &str = "\x1b[?25l";
 pub(crate) const SHOW_CURSOR: &str = "\x1b[?25h";
 

@@ -9,7 +9,7 @@ use std::iter::repeat_n;
 // use constants from constants.rs
 use crate::constants::{CITY_HEIGHT, CITY_LENGTH, DEFAULT_CHAR, ERASE_LINE, FLUSH_ERROR, MOVE_UP};
 
-/// Enum to mention the type of a building
+// /// Enum to mention the type of a building
 // pub enum BuildingType {
 //     HABITAT = 1,
 //     BUILDING = 2
@@ -21,7 +21,6 @@ use crate::constants::{CITY_HEIGHT, CITY_LENGTH, DEFAULT_CHAR, ERASE_LINE, FLUSH
 // }
 
 /// Used to store everything about a currently running city
-
 // one lifetime for current_help
 pub(crate) struct City<'a> {
     /// Carries the entire thing in the CLI that is being printed
@@ -61,7 +60,7 @@ impl City<'_> {
             // go back CITY_HEIGHT + 1(help message) lines while clearing each line
 
             // use repeat_n to make a iterator
-            for _ in repeat_n((), CITY_HEIGHT + 1).into_iter() {
+            for _ in repeat_n((), CITY_HEIGHT + 1) {
                 print!("{}{}", MOVE_UP, ERASE_LINE);
             }
 
