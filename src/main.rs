@@ -94,7 +94,7 @@ fn main() {
     // display and hang
     city.display(true);
     loop {
-        stdin.read(&mut input).expect(INPUT_ERROR);
+        stdin.read_exact(&mut input).expect(INPUT_ERROR);
 
         if input[0] == b'q' {
             return;
