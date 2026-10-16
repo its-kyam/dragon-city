@@ -30,6 +30,7 @@ Run:
 
 ```bash
 git clone https://github.com/its-kyam/dragon-city.git
+cd dragon-city
 cargo run -q
 ```
 
